@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet"  href="./main.css" />          
+	<script type='text/javascript' src="./jquery-1.8.0.js"></script>
+	<script src="./jquery.websocket.js"></script> 	
+</head>
+<body>
+<div id="status"></div>
+<div id="message"></div>
+</div>
+</body>
+
+<script type="text/javascript">
+function WebSocketImpl (url, proto) {
+	var instance;
+	
+	WebSocketImpl = function WebSocketImpl() {
+		return instance;
+	};
+	
+	WebSocketImpl.prototype = this;
+	
+	instance = new WebSocketImpl();
+	
+	instance.constructor = WebSocketImpl;
+	
+	// Start to build
+	instance.url = url;
+	instance.proto = proto;
+		
+	// Public method
+	instance.connect = function() {
+		WebSocketAndroid.connect(url, proto);
+	};
+			
+	return instance;
+} 
+
+$(document).ready(function(){
+	$("#status").createWebSocket();
+	$("#message").handleMessage();
+});
+
+</script>
+</html>
